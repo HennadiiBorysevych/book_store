@@ -6,9 +6,16 @@ All Books
 
 {% block content %}
  <ul>
-    <li>
-        Book 11
-    </li>
+   {% for book in books %}
+   <li>
+    <a href="{% url "book-detail" book.slug %}">
+    {% comment %} <a href="{{ book.get_absolute_url }}"> {% endcomment %}
+        {{book.title}}
+    </a>
+
+    (Rating: {{book.rating}})
+   </li>
+   {% endfor %}
  </ul>
 
 {% endblock  %}
